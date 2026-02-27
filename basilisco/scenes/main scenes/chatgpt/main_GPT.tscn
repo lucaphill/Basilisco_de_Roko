@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://couxuy5er2lmj"]
+
+[ext_resource type="Script" uid="uid://bb5dvit5aa7pc" path="res://scenes/main scenes/chatgpt/chat_card_manager.gd" id="2_8qjlb"]
+[ext_resource type="Script" uid="uid://dtbyd3b6gkndn" path="res://scenes/main scenes/chatgpt/chat_player_hand.gd" id="3_oyr7a"]
+[ext_resource type="Script" uid="uid://dawhrv4xg0a6f" path="res://scenes/main scenes/chatgpt/chat_input_manager.gd" id="4_xmgp1"]
+[ext_resource type="Script" uid="uid://lxnnxwwh3aji" path="res://scenes/main scenes/chatgpt/chat_deck.gd" id="5_pyd14"]
+
+[node name="MainGPT" type="Node2D" unique_id=2050167096]
+
+[node name="Chat_cardManager" type="Node2D" parent="." unique_id=644930699]
+script = ExtResource("2_8qjlb")
+
+[node name="Chat_PlayerHand" type="Node2D" parent="." unique_id=1098720047]
+script = ExtResource("3_oyr7a")
+
+[node name="Chat_InputManager" type="Node2D" parent="." unique_id=2033294853]
+script = ExtResource("4_xmgp1")
+
+[node name="Chat_deck" type="Node2D" parent="." unique_id=1088994175]
+script = ExtResource("5_pyd14")
+
+[node name="Chat_CardSpawn" type="Marker2D" parent="." unique_id=139931588]
+position = Vector2(775, -112)

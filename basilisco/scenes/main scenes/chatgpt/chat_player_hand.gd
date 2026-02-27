@@ -1,8 +1,3 @@
-'''
-NÃO USE ESSE SCRIPT NO SEU BOSS A NÃO SER QUE VC NÃO VÁ MUDAR NADA, CASO NECESSÁRIO FAZER MUDANÇAS,
-CREI UM NODE COM O SEU NOME PREFERIDO E COPIE E COLE O CODIGO 
-(não é o melhor a longo praso, mas melhor que nada)
-'''
 extends Node2D
 
 const DEFALT_CARD_MOVE_SPEED = 0.1
@@ -12,11 +7,12 @@ var card_width = 120
 var card_angle = 0
 var player_hand = []
 var center_screen_x
+#@onready var Card_Spawn = $"../Chat_CardSpawn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hand_y_position = get_viewport().size.y / 1.1
-	center_screen_x = get_viewport().size.x / 2
+	center_screen_x = get_viewport().size.x / 2 + 130
 	
 
 # Adiciona a carta a sua mão

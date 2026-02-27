@@ -1,8 +1,3 @@
-'''
-NÃO USE ESSE SCRIPT NO SEU BOSS A NÃO SER QUE VC NÃO VÁ MUDAR NADA, CASO NECESSÁRIO FAZER MUDANÇAS,
-CREI UM NODE COM O SEU NOME PREFERIDO E COPIE E COLE O CODIGO 
-(não é o melhor a longo praso, mas melhor que nada)
-'''
 extends Node2D
 
 signal left_mouse_buttton_clicked
@@ -12,12 +7,8 @@ signal left_mouse_buttton_released
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_DECK = 4
 
-var card_manager_reference
-var deck_reference
-
-func _ready() -> void:
-	card_manager_reference = $"../CardManager"
-	deck_reference = $"../Deck"
+@onready var card_manager_reference = $"../Chat_cardManager"
+@onready var deck_reference = $"../Chat_deck"
 
 
 func _input(event):
