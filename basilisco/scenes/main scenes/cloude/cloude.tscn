@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://d337sfjrexjkw"]
 
 [ext_resource type="Script" uid="uid://bh00jcwcm54xb" path="res://scripts/cloude.gd" id="1_lwafn"]
+[ext_resource type="Texture2D" uid="uid://cq5deg4k2k78" path="res://assents/jp/backgroundjogo2.png" id="2_vkk0i"]
+[ext_resource type="Texture2D" uid="uid://tr0eh4wweptg" path="res://assents/jp/Projeto (20260226082008).png" id="3_nvwb7"]
+[ext_resource type="Script" uid="uid://byme5voge4nxd" path="res://scenes/main scenes/cloude/claude_interface.gd" id="4_mxq18"]
+[ext_resource type="PackedScene" uid="uid://3kjpwt6khs0" path="res://scenes/cardSlot.tscn" id="5_a7q58"]
+[ext_resource type="Script" uid="uid://vrmd5hxtegt7" path="res://scenes/main scenes/cloude/claude_card_manager.gd" id="6_d0hqo"]
+[ext_resource type="Script" uid="uid://dgniklo70ee2m" path="res://scenes/main scenes/cloude/claude_player_hand.gd" id="7_r484f"]
+[ext_resource type="Script" uid="uid://cbsvdwtdn0pmp" path="res://scenes/main scenes/cloude/claude_deck.gd" id="8_e53mm"]
+[ext_resource type="Script" uid="uid://byxnbmp5uk245" path="res://scenes/main scenes/cloude/claude_imput_manager.gd" id="9_nl1h6"]
 
 [node name="Cloude" type="Node2D" unique_id=1913107958]
 script = ExtResource("1_lwafn")
@@ -18,5 +26,75 @@ offset_top = 648.0
 offset_right = 1229.0
 offset_bottom = 682.0
 text = "voltar"
+
+[node name="backcloude" type="Sprite2D" parent="." unique_id=511406665]
+position = Vector2(640, 355)
+scale = Vector2(1.7256757, 1.459432)
+texture = ExtResource("2_vkk0i")
+
+[node name="o cara" type="Sprite2D" parent="backcloude" unique_id=677544298]
+position = Vector2(-207.99413, -0.5139179)
+scale = Vector2(0.81713, 0.68805295)
+texture = ExtResource("3_nvwb7")
+
+[node name="ClaudeInterface" type="Control" parent="." unique_id=2096067867]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_mxq18")
+
+[node name="FaseLabel" type="Label" parent="ClaudeInterface" unique_id=176961435]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 25.0
+offset_right = 1260.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 20
+text = "fase 1 | puzzle 1/9 | acertos: 0 "
+
+[node name="CodigoLabel" type="Label" parent="ClaudeInterface" unique_id=1492350882]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 196.0
+offset_right = 1410.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[node name="OutputLabel" type="Label" parent="ClaudeInterface" unique_id=1842669168]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 152.0
+offset_right = 1419.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 1, 0.41568628, 1)
+theme_override_font_sizes/font_size = 22
+text = "Output: "
+
+[node name="FeedbackLabel" type="Label" parent="ClaudeInterface" unique_id=276112144]
+layout_mode = 0
+offset_left = 812.0
+offset_top = 26.0
+offset_right = 1212.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 24
+
+[node name="CardSlot" parent="." unique_id=1090387939 instance=ExtResource("5_a7q58")]
+position = Vector2(632, 281)
+
+[node name="MainClaude" type="Node2D" parent="." unique_id=414717384]
+
+[node name="Claude_CardManager" type="Node2D" parent="MainClaude" unique_id=258327602]
+script = ExtResource("6_d0hqo")
+
+[node name="Claude_PlayerHand" type="Node2D" parent="MainClaude" unique_id=929827819]
+script = ExtResource("7_r484f")
+
+[node name="Claude_Deck" type="Node2D" parent="MainClaude" unique_id=1293589719]
+script = ExtResource("8_e53mm")
+
+[node name="Claude_InputManager" type="Node2D" parent="MainClaude" unique_id=1867836051]
+script = ExtResource("9_nl1h6")
 
 [connection signal="pressed" from="Control/voltar" to="." method="_on_voltar_pressed"]
