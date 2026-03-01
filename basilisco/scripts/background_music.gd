@@ -7,7 +7,7 @@ func _play_music(music : AudioStream, volume = 0.0):
 		pass
 	
 	stream = music
-	volume_db = volume
+	volume_db = -20.00
 	play()
 
 

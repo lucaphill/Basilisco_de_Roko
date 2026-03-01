@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var calculo = $"../UI/Calculo"
-@onready var pontos_label = $"../UI/Pontos"
+@onready var pontos_label = $"../UI/VBoxContainer/Pontos"
 @onready var deck = $"../Deck"
-@onready var enemy_label = $"../UI/Pontos_inimigo"
+@onready var enemy_label = $"../UI/VBoxContainer/Pontos_inimigo"
 @onready var turn_timer = $TurnTimer
 @onready var intent_label = $"../UI/Intencao"
 
@@ -14,8 +14,8 @@ var click_lock = false
 var fusion_used = false
 
 #posiçõa das cartas na tela
-var start_x = 420
-var spacing = 150
+var start_x = 520
+var spacing = 120
 var y_pos = 650
 var center_offset = 850 
 
@@ -214,7 +214,7 @@ func _on_botao_fundir_pressed() -> void:
 
 #Funções Gemini
 func update_enemy_ui():
-	enemy_label.text = "Inimigo: " + str(enemy_score)
+	enemy_label.text = "Gemini: " + str(enemy_score)
 
 func enemy_turn():
 	var gain = next_enemy_action["ganha"]
