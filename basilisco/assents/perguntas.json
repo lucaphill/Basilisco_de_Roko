@@ -167,7 +167,7 @@
   {
     "question": "Se você tentar falhar e conseguir, você venceu ou perdeu?",
     "option": ["Venceu", "Perdeu", "Empate técnico", "Depende do ponto de vista"],
-    "correct_option_index": 3
+    "correct_option_index": 1
   },
   {
     "question": "Qual é a melhor resposta para uma pergunta muito besta?",

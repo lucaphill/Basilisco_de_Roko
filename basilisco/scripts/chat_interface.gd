@@ -79,7 +79,7 @@ func choose_option(selected_index: int):
 		chat_score.text = "Chat GPT\n" + str(chat_score_count)
 		
 		# deixa o tempo verde um tico
-		timer += 5
+		timer += 4
 		update_timer("green")
 	else:
 		var chat_points = randi_range(20, 40)

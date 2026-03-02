@@ -17,9 +17,9 @@ func _on_back_pressed() -> void:
 	$Trascicoes/Fade_in/AnimationPlayer.play("fade_in")
 
 
-func _on_test_room_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main scenes/main.tscn")
-	
+#func _on_test_room_pressed() -> void:
+	#get_tree().change_scene_to_file("res://scenes/main scenes/main.tscn")
+	#
 
 
 func _on_fade_in_timer_timeout() -> void:
@@ -27,8 +27,8 @@ func _on_fade_in_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://scenes/main scenes/main_menu.tscn")
 	elif (button_type == "gemini"):
 		get_tree().change_scene_to_file("res://scenes/main scenes/gemini/gemini.tscn")
-	elif (button_type == "chatgpt"):
-		get_tree().change_scene_to_file("res://scenes/main scenes/chatgpt/chat.tscn")
+	elif (button_type == "chat_tutorial"):
+		get_tree().change_scene_to_file("res://scenes/main scenes/chatgpt/tutorial_chat.tscn")
 	elif (button_type == "cloude"):
 		get_tree().change_scene_to_file("res://scenes/main scenes/cloude/cloude.tscn")
 		
@@ -53,7 +53,7 @@ func _on_button_cloud_pressed() -> void:
 
 
 func _on_button_chat_pressed() -> void:
-	button_type = "chatgpt"
+	button_type = "chat_tutorial"
 	$Trascicoes/Fade_in.show()
 	$Trascicoes/Fade_in/Fade_in_Timer.start()
 	$Trascicoes/Fade_in/AnimationPlayer.play("fade_in")

@@ -3,7 +3,9 @@
 [ext_resource type="FontFile" uid="uid://dw6wfk8i82tbv" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="1_2nrry"]
 [ext_resource type="Script" uid="uid://4y8otdogw7ia" path="res://scripts/boss_select.gd" id="1_i14ug"]
 [ext_resource type="PackedScene" uid="uid://b05j34cynjhjg" path="res://scenes/fade_in.tscn" id="2_1o3hn"]
+[ext_resource type="Texture2D" uid="uid://u2j3crir0toq" path="res://assents/sprites/Fundo_selecao.png" id="2_54dn7"]
 [ext_resource type="PackedScene" uid="uid://gpmt15d7adk8" path="res://scenes/fade_out.tscn" id="3_b63hh"]
+[ext_resource type="Texture2D" uid="uid://3mbhmbqy40y0" path="res://assents/sprites/luz.png" id="3_sr87a"]
 [ext_resource type="Texture2D" uid="uid://d300ra4e61mpc" path="res://assents/icon.svg" id="5_b63hh"]
 [ext_resource type="Texture2D" uid="uid://bpjqcipq4u2fs" path="res://assents/gemini_mini.png" id="6_i16bf"]
 [ext_resource type="Texture2D" uid="uid://ckkrrsx1ijioq" path="res://assents/cloude_mini.png" id="7_6t6vp"]
@@ -102,6 +104,25 @@ border_color = Color(0, 0, 0, 1)
 [node name="boss_select" type="Node2D" unique_id=938538666]
 script = ExtResource("1_i14ug")
 
+[node name="Background" type="Control" parent="." unique_id=1812527984]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background" unique_id=107422677]
+layer = -1
+
+[node name="Fundo" type="Sprite2D" parent="Background/CanvasLayer" unique_id=1464401636]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(640, 360)
+texture = ExtResource("2_54dn7")
+
+[node name="Luz" type="Sprite2D" parent="Background/CanvasLayer" unique_id=2094174935]
+position = Vector2(635, 376)
+texture = ExtResource("3_sr87a")
+
 [node name="Trascicoes" type="CanvasLayer" parent="." unique_id=2127032376]
 
 [node name="Fade_in" parent="Trascicoes" unique_id=2070389534 instance=ExtResource("2_1o3hn")]
@@ -110,6 +131,10 @@ visible = false
 [node name="Fade_in_Timer" type="Timer" parent="Trascicoes/Fade_in" unique_id=1634209555]
 
 [node name="Fade_out" parent="Trascicoes" unique_id=971055919 instance=ExtResource("3_b63hh")]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
 
 [node name="Fade_out_Timer" type="Timer" parent="Trascicoes/Fade_out" unique_id=1779456337]
 
@@ -121,9 +146,9 @@ offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="button_manager" unique_id=1091339335]
 layout_mode = 0
-offset_left = 190.0
+offset_left = 101.0
 offset_top = 135.0
-offset_right = 1090.0
+offset_right = 1192.0
 offset_bottom = 462.0
 theme_override_constants/separation = 69
 alignment = 1
@@ -191,21 +216,12 @@ expand_icon = true
 
 [node name="back" type="Button" parent="button_manager" unique_id=351973294]
 layout_mode = 0
-offset_left = 517.0
-offset_top = 611.0
-offset_right = 747.0
-offset_bottom = 694.0
+offset_left = 536.0
+offset_top = 657.0
+offset_right = 739.0
+offset_bottom = 699.0
 pivot_offset = Vector2(115, 0)
 text = "VOLTAR"
-
-[node name="test_room" type="Button" parent="button_manager" unique_id=1522387701]
-layout_mode = 0
-offset_left = 514.0
-offset_top = 497.0
-offset_right = 750.0
-offset_bottom = 577.0
-text = "sala de teste
-das cartas"
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=747699384]
 offset_left = 420.0
@@ -231,4 +247,3 @@ vertical_alignment = 1
 [connection signal="pressed" from="button_manager/HBoxContainer/Button_gemini" to="." method="_on_button_gemini_pressed"]
 [connection signal="pressed" from="button_manager/HBoxContainer/Button_cloud" to="." method="_on_button_cloud_pressed"]
 [connection signal="pressed" from="button_manager/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="button_manager/test_room" to="." method="_on_test_room_pressed"]
