@@ -26,7 +26,7 @@ func _on_fade_in_timer_timeout() -> void:
 	if (button_type == "voltar"):
 		get_tree().change_scene_to_file("res://scenes/main scenes/main_menu.tscn")
 	elif (button_type == "gemini"):
-		get_tree().change_scene_to_file("res://scenes/main scenes/gemini/gemini.tscn")
+		get_tree().change_scene_to_file("res://scenes/main scenes/gemini/gimini_tutorial.tscn")
 	elif (button_type == "chat_tutorial"):
 		get_tree().change_scene_to_file("res://scenes/main scenes/chatgpt/tutorial_chat.tscn")
 	elif (button_type == "cloude"):
