@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmo5gixkcmmti"
-path="res://.godot/imported/Chat_tutorial.png-c2d98ba92025866f4f3b90c9bb96f659.ctex"
+uid="uid://dtl353atrg7e5"
+path="res://.godot/imported/chat_tutorial.png-cfc5e47381f23306c3da35083d78d0c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/sprites/Chat_tutorial.png"
-dest_files=["res://.godot/imported/Chat_tutorial.png-c2d98ba92025866f4f3b90c9bb96f659.ctex"]
+source_file="res://assents/sprites/chat_tutorial.png"
+dest_files=["res://.godot/imported/chat_tutorial.png-cfc5e47381f23306c3da35083d78d0c1.ctex"]
 
 [params]
 
