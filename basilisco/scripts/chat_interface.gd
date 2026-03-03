@@ -32,6 +32,13 @@ func _ready():
 	card_manager.connect("card_played", choose_option)
 	
 	refresh_scene()
+	
+
+
+func _process(delta: float) -> void:
+	if score_count > chat_score_count + 500:
+			call_deferred("_go_to_victory")
+			BackgroundMusic_menu._play_music(main_music)
 
 
 func refresh_scene():
@@ -131,7 +138,7 @@ func update_timer(color: String = "white"):
 func chat_game_end():
 	if timer <= 0:
 
-		if score_count > chat_score_count + 150:
+		if score_count > chat_score_count + 500:
 			call_deferred("_go_to_victory")
 			BackgroundMusic_menu._play_music(main_music)
 			
