@@ -13,7 +13,7 @@ var player_deck: Array = []   # [A, B C,D]
 func setup_deck(labels: Array):
 	card_labels = labels
 	player_deck = ["A", "B", "C", "D"]
-	# cada uma é específica 
+	player_deck.shuffle()
 
 
 func draw_all_cards():

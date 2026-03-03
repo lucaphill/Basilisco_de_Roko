@@ -37,7 +37,7 @@ func update_hand_positions(speed):
 
 func calculate_card_position(index) -> float:
 	# Calcula sempre direto do viewport — evita problema de ordem de _ready()
-	var center = get_viewport().size.x / 2.0 + 200
+	var center = 760
 	var total_width = (player_hand.size() - 1) * card_width
 	return center + index * card_width - total_width / 2.0
 

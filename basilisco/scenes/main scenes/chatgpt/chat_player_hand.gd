@@ -14,8 +14,8 @@ var curve_strength = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	center_screen_x = get_viewport().size.x / 2 + 130
-	
+	#center_screen_x = get_viewport().size.x / 2 + 130
+	center_screen_x = 760
 
 # Adiciona a carta a sua mão
 func add_card_to_hand(card, speed):

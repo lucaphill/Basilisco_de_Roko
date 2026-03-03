@@ -11,7 +11,7 @@ var card_being_dragged
 var screen_size
 var is_hovering_on_card
 @onready var player_hand_reference = $"../Chat_PlayerHand"
-@onready var cardSlot_reference = $"../../CardSlot"
+#@onready var cardSlot_reference = $"../../CardSlot"
 
 
 # Pega o tamanho da tela pra empedir que a carta seja arrastada pra fora dela
