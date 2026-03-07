@@ -18,7 +18,7 @@ var item : Dictionary
 var index_item : int = 0
 var score_count = 0
 var chat_score_count = 0
-var timer = 30
+var timer = 0
 
 # Scrore -> definir depois
 
@@ -27,18 +27,16 @@ var correct_index : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	time_left.text = "[wave amp=20 freq=6]" + "tempo: " + str(timer) + "s"  + "[/wave]"
+	time_left.text = "[wave amp=20 freq=6]" + "rodada: " + str(timer) + "[/wave]"
 	
 	card_manager.connect("card_played", choose_option)
-	
+
 	refresh_scene()
 	
 
 
 func _process(delta: float) -> void:
-	if score_count > chat_score_count + 500:
-			call_deferred("_go_to_victory")
-			BackgroundMusic_menu._play_music(main_music)
+	chat_game_end()
 
 
 func refresh_scene():
@@ -89,7 +87,7 @@ func choose_option(selected_index: int):
 		chat_score.text = "Chat GPT\n" + str(chat_score_count)
 		
 		# deixa o tempo verde um tico
-		timer += 2
+		timer += 1
 		update_timer("green")
 	else:
 		var chat_points = randi_range(20, 40)
@@ -98,7 +96,7 @@ func choose_option(selected_index: int):
 		score.text = "Pontos\n" + str(score_count)
 		
 		# deixa o tempo vermelho um tico
-		timer -= 2
+		timer += 1
 		update_timer("red")
 		
 	$"../CardSlot".reset_card_slot()
@@ -107,18 +105,18 @@ func choose_option(selected_index: int):
 	refresh_scene()
 
 
-func _on_timer_timeout() -> void:
-	timer -= 1
-	if timer <= 0:
-		timer = 0
-		update_timer()
-		chat_game_end()
-		return
-		
-	if timer <= 10:
-		update_timer("red")
-	else:
-		update_timer()
+#func _on_timer_timeout() -> void:
+	#timer -= 1
+	#if timer <= 0:
+		#timer = 0
+		#update_timer()
+		#chat_game_end()
+		#return
+		#
+	#if timer <= 10:
+		#update_timer("red")
+	#else:
+		#update_timer()
 
 
 func update_timer(color: String = "white"):	
@@ -129,26 +127,20 @@ func update_timer(color: String = "white"):
 	elif color == "red":
 		color_tag = "[pulse freq=1.0 color=red ease=-2.0]"
 	
-	time_left.text = color_tag + "[wave amp=20 freq=6]tempo: " + str(timer) + "s[/wave]"
+	time_left.text = color_tag + "[wave amp=20 freq=6]rodada: " + str(timer) + "[/wave]"
 	
 	if color_tag != "":
 		time_left.text += "[/pulse]"
 
 
 func chat_game_end():
-	if timer <= 0:
-
-		if score_count > chat_score_count + 500:
-			call_deferred("_go_to_victory")
-			BackgroundMusic_menu._play_music(main_music)
+	if score_count > chat_score_count + 500:
+		call_deferred("_go_to_victory")
+		BackgroundMusic_menu._play_music(main_music)
 			
-		elif score_count < chat_score_count:
-			call_deferred("_go_to_defeat")
-			BackgroundMusic_menu._play_music(main_music)
-			
-		else:
-			call_deferred("_go_to_defeat")
-			BackgroundMusic_menu._play_music(main_music)
+	elif score_count + 150 < chat_score_count:
+		call_deferred("_go_to_defeat")
+		BackgroundMusic_menu._play_music(main_music)
 
 
 func _go_to_victory():
